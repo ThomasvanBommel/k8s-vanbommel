@@ -15,3 +15,12 @@ spec:
             name: nginx-service
             port:
               number: 80
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: home-service
+            port:
+              number: 8080
