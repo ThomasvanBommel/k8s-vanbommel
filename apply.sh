@@ -21,4 +21,4 @@ for file in ./*.yaml; do
 done
 
 # apply configuration remotely using ssh
-printf "$CONFIG" | ssh thomas@192.168.1.169 minikube kubectl -- $CMD -f -
+printf "$CONFIG" | envsubst | ssh thomas@192.168.1.169 minikube kubectl -- $CMD -f - | grep -v unchanged
